@@ -1,10 +1,6 @@
 package frc.robot.subsystems;
 
-import edu.wpi.first.math.MathUtil;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Constants.CANIDConstants;
 
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
@@ -24,8 +20,8 @@ public class Drivetrain extends SubsystemBase {
     private WPI_TalonSRX leftMotor;
 
     public Drivetrain() {
-        rightMotor = new WPI_TalonSRX(CANIDConstants.rightDriveMotorID); // CAN ID set in Tuner X
-        leftMotor = new WPI_TalonSRX(CANIDConstants.leftDriveMotorID); // CAN ID set in Tuner X
+        rightMotor = new WPI_TalonSRX(0); // CAN ID set in Tuner X
+        leftMotor = new WPI_TalonSRX(1); // CAN ID set in Tuner X
         rightMotor.setInverted(false);
         leftMotor.setInverted(true);
         rightMotor.setNeutralMode(NeutralMode.Brake);
@@ -51,7 +47,7 @@ public class Drivetrain extends SubsystemBase {
      * @param left  a double from -1 to 1 for the speed
      */
     public void driveTank(double right, double left) {
-        rightMotor.set(MathUtil.clamp(right, -1, 1));
-        leftMotor.set(MathUtil.clamp(left, -1, 1));
+        rightMotor.set(right);
+        leftMotor.set(left);
     }
 }
