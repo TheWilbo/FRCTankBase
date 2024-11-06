@@ -6,7 +6,8 @@ import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 /**
- * This is the Subsystem for out two-motor {@link WPI_TalonSRX Talon SRX} tank drive.
+ * This is the Subsystem for out two-motor {@link WPI_TalonSRX Talon SRX} tank
+ * drive.
  * 
  * <p>
  * Also, a base for subsystems that handles registration in the constructor, and
@@ -26,18 +27,6 @@ public class Drivetrain extends SubsystemBase {
         leftMotor.setInverted(true);
         rightMotor.setNeutralMode(NeutralMode.Brake);
         leftMotor.setNeutralMode(NeutralMode.Brake);
-    }
-
-    @Override
-    public void periodic() {
-        // This method will be called once per scheduler run
-
-    }
-
-    @Override
-    public void simulationPeriodic() {
-        // This method will be called once per scheduler run when in simulation
-
     }
 
     /**
